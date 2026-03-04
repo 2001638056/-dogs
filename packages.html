@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="حزم Loving Homes Hotel: المميزة، الكلاسيكية، واليوم، بالإضافة إلى الحزم المخصصة." />
+  <title>Loving Homes Hotel | الحزم</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">🐾</span>
+        <div>
+          <h1 class="site-title">Loving Homes Hotel</h1>
+          <p class="site-subtitle">فندق الكلاب — رعاية، راحة، وأمان</p>
+        </div>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        القائمة
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="التنقل الرئيسي">
+        <a class="nav-link" href="index.html">الرئيسية</a>
+        <a class="nav-link" href="about.html">عن الشركة</a>
+        <a class="nav-link" href="facilities.html">المرافق والخدمات</a>
+        <a class="nav-link active" href="packages.html">الحزم</a>
+        <a class="nav-link" href="contact.html">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container section">
+      <h2>الحزم المقدمة</h2>
+      <p>
+        اضغط على أي حزمة لعرض صورتها وشرحها بالتفصيل.
+      </p>
+    </section>
+
+    <section class="container section">
+      <div class="grid">
+        <button class="card pkg-btn" type="button"
+          data-title="الحزمة المميزة"
+          data-img="images/premium.jpg"
+          data-desc="المشي أربع مرات / ممارسة أربعة أنشطة يوميًا — مساحة عشب خاصة — تحديثات/صور يومية — مكافآت (على النحو المتفق عليه مع صاحب الحيوان الأليف).">
+          <h3>الحزمة المميزة</h3>
+          <p class="small">اضغط لعرض التفاصيل</p>
+        </button>
+
+        <button class="card pkg-btn" type="button"
+          data-title="الحزمة الكلاسيكية"
+          data-img="images/classic.jpg"
+          data-desc="المشي ثلاث مرات / ممارسة ثلاث أنشطة يوميًا — حظيرة لعب داخلية — منطقة للاسترخاء — جلسة حلاقة وتنظيف.">
+          <h3>الحزمة الكلاسيكية</h3>
+          <p class="small">اضغط لعرض التفاصيل</p>
+        </button>
+
+        <button class="card pkg-btn" type="button"
+          data-title="حزمة اليوم"
+          data-img="images/day.jpg"
+          data-desc="المشي مرتين يوميًا — منطقة لعب خارجية — مسار الرشاقة — حفر حفرة في الرمل.">
+          <h3>حزمة اليوم</h3>
+          <p class="small">اضغط لعرض التفاصيل</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- مكان عرض الصورة والشرح -->
+    <section class="container section">
+      <div class="card pkg-view" aria-live="polite">
+        <h3 id="pkgTitle">اختر حزمة لعرض التفاصيل</h3>
+        <img id="pkgImg" src="" alt="" style="display:none" />
+        <p id="pkgDesc" class="pkg-desc small"></p>
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2>الحزم المخصصة</h2>
+      <div class="card">
+        <p>
+          تتوفر حزم مخصصة للإقامات الطويلة أو للكلاب ذات المتطلبات الإضافية.
+          يجب على العملاء الاتصال بالشركة لترتيب أي حزم مخصصة.
+        </p>
+        <div class="hero-actions" style="margin-top:10px">
+          <a class="btn" href="contact.html">تواصل لترتيب حزمة مخصصة</a>
+        </div>
+      </div>
+      <p class="small">
+        فقرة الحزم المخصصة مطلوبة في موجز الواجب. :contentReference[oaicite:1]{index=1}
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Loving Homes Hotel  </p>
+      <p class="small"> 
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
