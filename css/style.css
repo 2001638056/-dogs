@@ -291,6 +291,36 @@ textarea:focus{
   flex-direction:column;
 }
 
+}/* ===== Mobile Navigation Fix ===== */
+
+@media (max-width:900px){
+
+.nav-toggle{
+display:block;
+}
+
+.site-nav{
+display:none;
+flex-direction:column;
+width:100%;
+margin-top:10px;
+gap:8px;
+}
+
+.site-nav.open{
+display:flex;
+}
+
+.nav-link{
+width:100%;
+text-align:center;
+padding:12px;
+}
+
+.header-inner{
+flex-wrap:wrap;
+}
+
 }/* ===== About Section ===== */
 .about-container{
   display:flex;
@@ -387,34 +417,4 @@ textarea:focus{
     font-size:15px;
     line-height:1.8;
   }
-}/* ===== Mobile Navigation Fix ===== */
-
-@media (max-width:900px){
-
-.nav-toggle{
-display:block;
-}
-
-.site-nav{
-display:none;
-flex-direction:column;
-width:100%;
-margin-top:10px;
-gap:8px;
-}
-
-.site-nav.open{
-display:flex;
-}
-
-.nav-link{
-width:100%;
-text-align:center;
-padding:12px;
-}
-
-.header-inner{
-flex-wrap:wrap;
-}
-
 }
