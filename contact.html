@@ -45,7 +45,14 @@
       </p>
 
       <div class="card">
-        <form id="contactForm" novalidate>
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/xaqpydvq"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="طلب جديد من موقع Loving Homes Hotel" />
+          <input type="hidden" name="_language" value="ar" />
+
           <div class="form-grid">
             <div class="form-field">
               <label for="name">الاسم <span class="req" aria-hidden="true">*</span></label>
@@ -67,7 +74,7 @@
                 <option value="day">حزمة اليوم</option>
                 <option value="custom">حزمة مخصصة</option>
               </select>
-              <p class="field-hint">اختر الحزمة المطلوبة أو اختر “حزمة مخصصة”.</p>
+              <p class="field-hint">اختر الحزمة المطلوبة أو اختر حزمة مخصصة.</p>
             </div>
 
             <div class="form-field form-full">
@@ -100,7 +107,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Loving Homes Hotel </p>
+      <p>© <span id="year"></span> Loving Homes Hotel</p>
       <p class="small">
         تواصل معنا لطلب المزيد من المعلومات أو لترتيب حزمة مخصصة.
       </p>
