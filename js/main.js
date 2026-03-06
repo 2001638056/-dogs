@@ -60,7 +60,6 @@ function renderRequests() {
     return;
   }
 
-  // أحدث طلب أولًا
   const rows = requests
     .slice()
     .reverse()
@@ -89,7 +88,7 @@ if (form) {
   // اعرض الطلبات المحفوظة عند فتح صفحة التواصل
   renderRequests();
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const nameEl = document.getElementById("name");
@@ -108,7 +107,7 @@ if (form) {
       return;
     }
 
-    // احفظ الطلب
+    // احفظ الطلب محليًا
     const requests = loadRequests();
     requests.push({
       name,
@@ -119,32 +118,59 @@ if (form) {
     });
     saveRequests(requests);
 
-    // رسالة نجاح
-    if (successMsg) {
-      successMsg.style.display = "block";
-      successMsg.textContent = `تم حفظ طلبك بنجاح: ${packageLabel(pkg)} ✅`;
-    }
-
     // تحديث قائمة الطلبات
     renderRequests();
 
-    // تفريغ الحقول
-    form.reset();
+    // إرسال إلى Formspree
+    try {
+      const formData = new FormData(form);
+      formData.set("package", packageLabel(pkg));
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (response.ok) {
+        if (successMsg) {
+          successMsg.style.display = "block";
+          successMsg.textContent = `تم إرسال طلبك بنجاح: ${packageLabel(pkg)} ✅`;
+        }
+        form.reset();
+      } else {
+        if (successMsg) {
+          successMsg.style.display = "block";
+          successMsg.textContent = "تم حفظ الطلب على هذا الجهاز، لكن حدثت مشكلة في إرسال الإيميل.";
+        }
+      }
+    } catch (error) {
+      if (successMsg) {
+        successMsg.style.display = "block";
+        successMsg.textContent = "تم حفظ الطلب على هذا الجهاز، لكن تعذر إرسال الإيميل حاليًا.";
+      }
+    }
   });
 
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
       const ok = confirm("هل تريد مسح كل الطلبات المحفوظة على هذا الجهاز؟");
       if (!ok) return;
+
       localStorage.removeItem(STORAGE_KEY);
       renderRequests();
+
       if (successMsg) {
         successMsg.style.display = "block";
         successMsg.textContent = "تم مسح كل الطلبات المحفوظة ✅";
       }
     });
   }
-}// ====== تفاعل صفحة الحزم ======
+}
+
+// ====== تفاعل صفحة الحزم ======
 const pkgButtons = document.querySelectorAll(".pkg-btn");
 if (pkgButtons.length) {
   const titleEl = document.getElementById("pkgTitle");
